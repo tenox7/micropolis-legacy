@@ -27,6 +27,8 @@ Edit `res/weditor.tcl` and change "wm maxsize ..."
 
 ## Currently supported OS
 
+Binaries available for:
+
 - IBM AIX 4.3, 5.1 (ppc, ia64)
 - SGI IRIX 6.5 (mips)
 - HP-UX 11i-v1 (hppa2)
@@ -35,7 +37,7 @@ Edit `res/weditor.tcl` and change "wm maxsize ..."
 - Motorola SVR4 (m88k)
 - Apple A/UX 3.1 (m68k)
 
-## Planned Short
+## Upcoming
 
 - HP-UX 11i-v3 PA-RISC
 - Solaris 10 (amd64)
