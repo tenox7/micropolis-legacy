@@ -1,4 +1,5 @@
-XINCLUDE = /usr/include/X11
+XINCLUDE = /udk/usr/include
+XPMHOME = ..
 TCLHOME = ../tcl
 TKHOME = ../tk
 TCLXHOME = ../tclx
@@ -7,11 +8,10 @@ TKLIBRARY = /usr/local/lib/tk
 
 CC = cc
 
-OPTFLAGS = -O3
+OPTFLAGS = -O
 #OPTFLAGS = -g
 
-#DEFINES = -DIS_LINUX -DIS_INTEL -DNET
-DEFINES = -DIS_LINUX -DNET
+DEFINES = -DIS_LINUX -DIS_INTEL -DNET
 
 CFLAGS = $(OPTFLAGS) $(DEFINES) $(INCLUDES)
 
@@ -33,10 +33,11 @@ CPPFLAGS = $(INCLUDES)
 
 LIBS =	$(TCLXHOME)/libtk.a \
 	$(TCLXHOME)/libtcl.a \
+	../xpm/libXpm.a \
 	-lm \
         -lX11 \
         -lXext \
-	../xpm/libXpm.a
+	-lsocket -lnsl
 
 SRCS = \
 	sim.c \

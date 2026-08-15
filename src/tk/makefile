@@ -29,13 +29,13 @@
 
 CC		= cc
 
-CFLAGS		= -I. -I$(XINCLUDE) -I$(XLOINCL) -I$(TCL_DIR) -O3 -DTK_VERSION=\"2.3\" -DUSE_XPM3 -DIS_LINUX
+CFLAGS		= -I. -I$(XINCLUDE) -I$(XLOINCL) -I$(TCL_DIR) -O -DTK_VERSION=\"2.3\" -DUSE_XPM3 -DIS_LINUX
 #CFLAGS		= -I. -I$(XINCLUDE) -I$(TCL_DIR) -g -DTK_VERSION=\"2.3\" -DUSE_XPM3 -DIS_LINUX
 
 TCL_DIR		= ../tcl
-XINCLUDE	= /usr/include/X11
+XINCLUDE	= /udk/usr/include
 XLOINCL		= ../xpm
-XLIB		= -L/usr/X11R6/lib -lX11 ../xpm/libXpm.a
+XLIB		= -lX11 ../xpm/libXpm.a -lsocket -lnsl
 
 LIBS = libtk.a $(TCL_DIR)/libtcl.a
 LINKS = $(LIBS) 
@@ -173,7 +173,6 @@ wish: main.o $(LIBS)
 libtk.a: $(OBJS)
 	rm -f libtk.a
 	ar cr libtk.a $(OBJS)
-	ranlib libtk.a
 
 $(TCL_DIR)/libtcl.a:
 	cd $(TCL_DIR); make libtcl.a

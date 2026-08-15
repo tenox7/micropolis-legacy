@@ -26,7 +26,7 @@ TCL_LIBRARY =	/usr/local/lib/tcl
 
 CC =		cc
 
-CFLAGS =	-O3 -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
+CFLAGS =	-O -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
 #CFLAGS =	-g -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
 
 GENERIC_OBJS = \
@@ -63,7 +63,6 @@ all: libtcl.a
 libtcl.a: ${OBJS} ${COMPAT_OBJS}
 	rm -f libtcl.a
 	ar cr libtcl.a ${OBJS}
-	ranlib libtcl.a
 
 tcltest: tcltest.o libtcl.a
 	${CC} ${CFLAGS} tcltest.o libtcl.a -o tcltest

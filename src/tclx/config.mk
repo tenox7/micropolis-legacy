@@ -25,7 +25,7 @@
 # them to us (tcl-project@neosoft.com).  At the end of this file is a
 # description of all the flags that can be set in the config file.
 #
-TCL_CONFIG_FILE=linux
+TCL_CONFIG_FILE=sco
 
 #==============================================================================
 #
@@ -62,7 +62,7 @@ XPM_LIBS=../xpm/libXpm.a
 
 CC=cc
 
-OPTIMIZE_FLAG=-O3 -DIS_LINUX
+OPTIMIZE_FLAG=-O -DIS_LINUX
 #OPTIMIZE_FLAG=-g -DIS_LINUX
 
 #------------------------------------------------------------------------------

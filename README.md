@@ -36,6 +36,7 @@ Binaries available for:
 - Sun Solaris 9 (x86)
 - Motorola SVR4 (m88k)
 - Apple A/UX 3.1 (m68k)
+- SCO OpenServer 5.0.7 / Open Desktop (x86)
 
 ## Upcoming
 
@@ -45,7 +46,6 @@ Binaries available for:
 ## Maybe
 
 - UnixWare
-- OpenDesktop
 - Dell Unix
 - Sinix
 - Dynix

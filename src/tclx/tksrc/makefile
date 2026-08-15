@@ -32,7 +32,7 @@ all: ../wish
 ../wish: ../libtk.a ../libtcl.a
 	$(RANLIB_CMD) ../libtk.a
 	$(CC) $(CFLAGS) ../tkucbsrc/main.o ../libtk.a ../libtcl.a \
-             $(XLDFLAGS) $(XPM_LIBS) $(TCL_TK_LIBS) -o ../wish
+             $(XLDFLAGS) ../$(XPM_LIBS) $(TCL_TK_LIBS) -o ../wish
 	if $(DO_STRIPPING) ; then \
 	    strip ../wish; \
 	    $(MCS_CMD) ../wish; fi

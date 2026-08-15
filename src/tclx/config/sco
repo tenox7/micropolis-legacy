@@ -1,0 +1,17 @@
+#------------------------------------------------------------------------------
+# SCO OpenServer 5 / SCO Open Desktop, built with the UnixWare/OpenServer
+# Development Kit (UDK) in /udk/usr/ccs/bin.
+#------------------------------------------------------------------------------
+#
+# The UDK ar(1) maintains the archive symbol table itself, so there is no
+# ranlib.  struct tm carries no tm_zone/tm_gmtoff, so the global "timezone"
+# is used instead.  RAND_MAX is 0x7FFF here, so TCL_32_BIT_RANDOM must stay
+# off, and setlinebuf is absent so setvbuf is used instead.
+#
+SYS_DEP_FLAGS=-DTCL_POSIX_SIG -DTCL_TIMEZONE_VAR
+LIBS=-lm -lsocket -lnsl
+RANLIB_CMD=echo
+MCS_CMD=true
+TCL_TK_LIBS= -lX11 -lm -lsocket -lnsl
+
+TCL_MAN_SEPARATOR=

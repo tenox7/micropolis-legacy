@@ -29,8 +29,10 @@ CFLAGS=$(OPTIMIZE_FLAG) $(XCFLAGS) -I../$(TCL_UCB_DIR) $(MEM_DEBUG_FLAGS) \
 
 all: made.tmp
 
+# SVR4 ar rejects an empty member list, so skip it when nothing is needed.
 made.tmp: $(SUPPORT_OBJS)
-	$(AR) cr ../libtcl.a $(SUPPORT_OBJS)
+	@if [ -n "$(SUPPORT_OBJS)" ]; then set -x; \
+	    $(AR) cr ../libtcl.a $(SUPPORT_OBJS); fi
 	touch made.tmp
 
 #------------------------------------------------------------------------------

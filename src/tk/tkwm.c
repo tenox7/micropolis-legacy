@@ -612,6 +612,12 @@ Tk_WmCmd(clientData, interp, argc, argv)
 	}
 	UpdateHints(winPtr);
     } else if ((c == 'f') && (strncmp(argv[1], "fullscreen", length) == 0)) {
+	static Atom _NET_WM_STATE;
+	static Atom _NET_WM_STATE_REMOVE;
+	static Atom _NET_WM_STATE_ADD;
+	static Atom _NET_WM_STATE_FULLSCREEN;
+	XEvent e;
+
 	if (argc != 4) {
 	    Tcl_AppendResult(interp, "wrong # arguments: must be \"",
 		    argv[0], " fullscreen window on|off\"",
@@ -630,38 +636,24 @@ Tk_WmCmd(clientData, interp, argc, argv)
 	    return TCL_ERROR;
 	}
 
-	static Atom _NET_WM_STATE;
-	static Atom _NET_WM_STATE_REMOVE;
-	static Atom _NET_WM_STATE_ADD;
-	static Atom _NET_WM_STATE_FULLSCREEN;
-
 	if (!_NET_WM_STATE) {
-#define MAX_ATOMS 30
-	  Atom *atom_ptr[MAX_ATOMS];
-	  char *names[MAX_ATOMS];
-	  int i = 0;
-#define atom(a,b) atom_ptr[i] = &a; names[i] = b; i++
-	  atom(_NET_WM_STATE, "_NET_WM_STATE");
-	  atom(_NET_WM_STATE_REMOVE, "_NET_WM_STATE_REMOVE");
-	  atom(_NET_WM_STATE_ADD, "_NET_WM_STATE_ADD");
-	  atom(_NET_WM_STATE_FULLSCREEN, "_NET_WM_STATE_FULLSCREEN");
-#undef atom
-	  Atom atoms[MAX_ATOMS];
-	  XInternAtoms(winPtr->display, names, i, 0, atoms);
-	  for (; i--;) {
-	    *atom_ptr[i] = atoms[i];
-	  }
+	  Display *dpy = winPtr->display;
+
+	  _NET_WM_STATE = XInternAtom(dpy, "_NET_WM_STATE", False);
+	  _NET_WM_STATE_REMOVE = XInternAtom(dpy, "_NET_WM_STATE_REMOVE", False);
+	  _NET_WM_STATE_ADD = XInternAtom(dpy, "_NET_WM_STATE_ADD", False);
+	  _NET_WM_STATE_FULLSCREEN =
+	      XInternAtom(dpy, "_NET_WM_STATE_FULLSCREEN", False);
 	}
 
-	XEvent e;
 	e.xany.type = ClientMessage;
 	e.xany.window = winPtr->window;
 	e.xclient.message_type = _NET_WM_STATE;
 	e.xclient.format = 32;
-	e.xclient.data.l[0] = 
-	  (wmPtr->flags & WM_FULL_SCREEN)
+	e.xclient.data.l[0] = (long)
+	  ((wmPtr->flags & WM_FULL_SCREEN)
 	    ? _NET_WM_STATE_ADD
-	    : _NET_WM_STATE_REMOVE;
+	    : _NET_WM_STATE_REMOVE);
 	e.xclient.data.l[1] = (long)_NET_WM_STATE_FULLSCREEN;
 	e.xclient.data.l[2] = (long)0;
 	e.xclient.data.l[3] = (long)0;
