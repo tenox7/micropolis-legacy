@@ -29,20 +29,16 @@ Edit `res/weditor.tcl` and change "wm maxsize ..."
 
 Binaries available for:
 
-- IBM AIX 4.3, 5.1 (ppc, ia64)
-- SGI IRIX 6.5 (mips)
+- Apple A/UX 3.1 (m68k)
 - HP-UX 11i-v1 (hppa2)
 - HP-UX 11i-v3 (ia64,hppa2)
-- Sun Solaris 9 (x86)
+- IBM AIX 4.3, 5.1 (ppc, ia64)
 - Motorola SVR4 (m88k)
-- Apple A/UX 3.1 (m68k)
 - SCO OpenServer 5.0.7 / Open Desktop (x86)
+- SGI IRIX 6.5 (mips)
+- Sun Solaris 9 (x86)
 
 ## Upcoming
-
-- Solaris 10 (amd64)
-
-## Maybe
 
 - UnixWare
 - Dell Unix
