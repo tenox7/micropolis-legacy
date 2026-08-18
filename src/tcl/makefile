@@ -1,4 +1,4 @@
-# Makefile.linux
+# Makefile for HP-UX 11i v3 PA-RISC (HP ANSI C in /opt/ansic/bin, -Ae mode).
 #
 # This Makefile is for use when distributing Tcl to the outside world.
 # It is normally set up by running the "config" script.  Before modifying
@@ -24,10 +24,10 @@
 
 TCL_LIBRARY =	/usr/local/lib/tcl
 
-CC =		cc
+CC =		/opt/ansic/bin/cc
 
-CFLAGS =	-O -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
-#CFLAGS =	-g -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
+CFLAGS =	-Ae -O -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
+#CFLAGS =	-Ae -g -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
 
 GENERIC_OBJS = \
 	regexp.o \

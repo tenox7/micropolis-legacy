@@ -25,7 +25,7 @@
 # them to us (tcl-project@neosoft.com).  At the end of this file is a
 # description of all the flags that can be set in the config file.
 #
-TCL_CONFIG_FILE=sco
+TCL_CONFIG_FILE=hpux11
 
 #==============================================================================
 #
@@ -60,7 +60,7 @@ XPM_LIBS=../xpm/libXpm.a
 # profiling is enabled, the DO_STRIPPING option below must be disabled.
 #
 
-CC=cc
+CC=/opt/ansic/bin/cc
 
 OPTIMIZE_FLAG=-O -DIS_LINUX
 #OPTIMIZE_FLAG=-g -DIS_LINUX
@@ -78,7 +78,7 @@ DO_STRIPPING=false
 # compiler and linker.  Also the yacc program you wish to use.
 #
 AR=ar
-XCFLAGS=
+XCFLAGS=-Ae
 XLDFLAGS=
 YACC=yacc
 #YACC=bison -b y

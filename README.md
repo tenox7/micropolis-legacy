@@ -32,7 +32,7 @@ Binaries available for:
 - IBM AIX 4.3, 5.1 (ppc, ia64)
 - SGI IRIX 6.5 (mips)
 - HP-UX 11i-v1 (hppa2)
-- HP-UX 11i-v3 (ia64)
+- HP-UX 11i-v3 (ia64,hppa2)
 - Sun Solaris 9 (x86)
 - Motorola SVR4 (m88k)
 - Apple A/UX 3.1 (m68k)
@@ -40,7 +40,6 @@ Binaries available for:
 
 ## Upcoming
 
-- HP-UX 11i-v3 PA-RISC
 - Solaris 10 (amd64)
 
 ## Maybe

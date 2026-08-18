@@ -1,0 +1,17 @@
+#------------------------------------------------------------------------------
+# HP-UX 11i v3 PA-RISC, built with the HP ANSI C compiler in /opt/ansic/bin.
+#------------------------------------------------------------------------------
+#
+# Sockets, strftime and the SysV catgets family all live in libc, so no extra
+# libraries beyond -lm and -lX11 are needed.  struct tm carries no tm_zone or
+# tm_gmtoff, so the global "timezone" is used instead.  RAND_MAX is 0x7FFF
+# here, so TCL_32_BIT_RANDOM must stay off, and ar maintains the archive
+# symbol table itself, making ranlib a no-op.
+#
+SYS_DEP_FLAGS=-DTCL_POSIX_SIG -DTCL_TIMEZONE_VAR -DTCL_IEEE_FP_MATH
+LIBS=-lm
+RANLIB_CMD=true
+MCS_CMD=true
+TCL_TK_LIBS= -lX11 -lm
+
+TCL_MAN_SEPARATOR=

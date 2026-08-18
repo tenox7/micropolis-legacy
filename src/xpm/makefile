@@ -1,20 +1,20 @@
 #
-# XPM makefile for SCO OpenServer 5 / SCO Open Desktop.
+# XPM makefile for HP-UX 11i v3 PA-RISC.
 #
-# Built with the UnixWare/OpenServer Development Kit (UDK) compiler in
-# /udk/usr/ccs/bin, which supplies its own X11R6 headers and libraries under
-# /udk/usr.  SVR4 selects string.h plus the bcopy/bzero macros in XpmI.h.
+# Built with the HP ANSI C compiler in /opt/ansic/bin in -Ae mode against the
+# system X11R6 headers in /usr/include/X11.  HP-UX is SysV, so -DSYSV picks
+# string.h plus the bcopy/bzero macros in XpmI.h.
 #
 
-CC = cc
+CC = /opt/ansic/bin/cc
 AR = ar r
 RM = rm -f
 LN = ln -s
 
-XINCLUDE = /udk/usr/include
+XINCLUDE = /usr/include
 
-CDEBUGFLAGS = -O
-DEFINES = -DZPIPE -DSVR4
+CDEBUGFLAGS = -Ae -O
+DEFINES = -DZPIPE -DSYSV
 
 CFLAGS = $(CDEBUGFLAGS) $(DEFINES) -I. -I$(XINCLUDE)
 

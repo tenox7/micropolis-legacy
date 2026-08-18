@@ -27,15 +27,15 @@
 #			switch unless your library is in a non-standard place.
 #
 
-CC		= cc
+CC		= /opt/ansic/bin/cc
 
-CFLAGS		= -I. -I$(XINCLUDE) -I$(XLOINCL) -I$(TCL_DIR) -O -DTK_VERSION=\"2.3\" -DUSE_XPM3 -DIS_LINUX
-#CFLAGS		= -I. -I$(XINCLUDE) -I$(TCL_DIR) -g -DTK_VERSION=\"2.3\" -DUSE_XPM3 -DIS_LINUX
+CFLAGS		= -I. -I$(XINCLUDE) -I$(XLOINCL) -I$(TCL_DIR) -Ae -O -DTK_VERSION=\"2.3\" -DUSE_XPM3 -DIS_LINUX
+#CFLAGS		= -I. -I$(XINCLUDE) -I$(TCL_DIR) -Ae -g -DTK_VERSION=\"2.3\" -DUSE_XPM3 -DIS_LINUX
 
 TCL_DIR		= ../tcl
-XINCLUDE	= /udk/usr/include
+XINCLUDE	= /usr/include
 XLOINCL		= ../xpm
-XLIB		= -lX11 ../xpm/libXpm.a -lsocket -lnsl
+XLIB		= -lX11 ../xpm/libXpm.a
 
 LIBS = libtk.a $(TCL_DIR)/libtcl.a
 LINKS = $(LIBS) 
