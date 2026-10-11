@@ -743,7 +743,7 @@ tk_main()
   { char buf[1024];
 
     sprintf(buf, "UIStartSimCity {%s} {%s} {} {%s}",
-	    HomeDir, ResourceDir, HostName);
+	    HomeDir, ResourceDir, HostName ? HostName : "");
     filename2UNIX(buf);
     if (Eval(buf) != TCL_OK) {
       sim_exit(1); // Just sets tkMustExit and ExitReturn

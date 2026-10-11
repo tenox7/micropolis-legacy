@@ -31,6 +31,8 @@ static int initialized = 0;
 
 static int	ErrorProc _ANSI_ARGS_((Display *display,
 		    XErrorEvent *errEventPtr));
+
+static XErrorHandler defaultHandler;
 
 /*
  *--------------------------------------------------------------
@@ -101,7 +103,7 @@ Tk_CreateErrorHandler(display, error, request, minorCode, errorProc, clientData)
      */
 
     if (!initialized) {
-	XSetErrorHandler(ErrorProc);
+	defaultHandler = XSetErrorHandler(ErrorProc);
 	initialized = 1;
     }
 
@@ -242,7 +244,6 @@ ErrorProc(display, errEventPtr)
 {
     register TkDisplay *dispPtr;
     register TkErrorHandler *errorPtr;
-    extern int _XDefaultError();
 
     /*
      * See if we know anything about the display.  If not, then
@@ -290,5 +291,5 @@ ErrorProc(display, errEventPtr)
      */
 
     couldntHandle:
-    return _XDefaultError(display, errEventPtr);
+    return (*defaultHandler)(display, errEventPtr);
 }
