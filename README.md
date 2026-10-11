@@ -30,21 +30,23 @@ Edit `res/weditor.tcl` and change "wm maxsize ..."
 Binaries available for:
 
 - Apple A/UX 3.1 (m68k)
+- AViiON DG/UX 4.20 (x86)
 - HP-UX 11i-v1 (hppa2)
 - HP-UX 11i-v3 (ia64,hppa2)
 - IBM AIX 4.3, 5.1 (ppc, ia64)
 - Motorola SVR4 (m88k)
 - SCO OpenServer 5.0.7 / Open Desktop (x86)
 - SGI IRIX 6.5 (mips)
+- Siemens Reliant UNIX 5.45 (mips)
+- Siemens SINIX-Z 5.42 (x86)
 - Sun Solaris 9 (x86)
 
 ## Upcoming
 
 - UnixWare
 - Dell Unix
-- Sinix
 - Dynix
-- DG/UX
+- DG/UX 88k
 - Minix
 - Ultrix
 - Interactive Unix
