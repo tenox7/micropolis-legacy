@@ -1,4 +1,4 @@
-XINCLUDE = /usr/include
+XINCLUDE = /usr/openwin/include
 XPMHOME = ..
 TCLHOME = ../tcl
 TKHOME = ../tk
@@ -6,12 +6,12 @@ TCLXHOME = ../tclx
 TCLLIBRARY = /usr/local/lib/tcl
 TKLIBRARY = /usr/local/lib/tk
 
-CC = /opt/ansic/bin/cc
+CC = gcc
 
-OPTFLAGS = -Ae -O
-#OPTFLAGS = -Ae -g
+OPTFLAGS = -O
+#OPTFLAGS = -g
 
-DEFINES = -DIS_LINUX -DNET
+DEFINES = -DIS_LINUX -DIS_INTEL -DSOLARIS2 -DNET
 
 CFLAGS = $(OPTFLAGS) $(DEFINES) $(INCLUDES)
 
@@ -35,8 +35,8 @@ LIBS =	$(TCLXHOME)/libtk.a \
 	$(TCLXHOME)/libtcl.a \
 	../xpm/libXpm.a \
 	-lm \
-        -lX11 \
-        -lXext
+        -L/usr/openwin/lib -R/usr/openwin/lib -lX11 \
+        -lXext -lsocket -lnsl
 
 SRCS = \
 	sim.c \

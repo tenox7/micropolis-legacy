@@ -24,9 +24,9 @@
 
 TCL_LIBRARY =	/usr/local/lib/tcl
 
-CC =		/opt/ansic/bin/cc
+CC =		gcc
 
-CFLAGS =	-Ae -O -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
+CFLAGS =	-O -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
 #CFLAGS =	-Ae -g -I. -DTCL_LIBRARY=\"${TCL_LIBRARY}\" -DIS_LINUX
 
 GENERIC_OBJS = \

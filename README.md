@@ -39,6 +39,7 @@ Binaries available for:
 - SGI IRIX 6.5 (mips)
 - Siemens Reliant UNIX 5.45 (mips)
 - Siemens SINIX-Z 5.42 (x86)
+- Sun Solaris 2.5.1 (ppc)
 - Sun Solaris 9 (x86)
 
 ## Upcoming
@@ -50,7 +51,7 @@ Binaries available for:
 - Minix
 - Ultrix
 - Interactive Unix
-- Solaris (ppc, amd64)
+- Solaris (amd64)
 - NextStep via CubX
 
 ## Legal

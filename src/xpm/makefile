@@ -1,20 +1,20 @@
 #
-# XPM makefile for HP-UX 11i v3 PA-RISC.
+# XPM makefile for Solaris 2.5.1 PowerPC.
 #
-# Built with the HP ANSI C compiler in /opt/ansic/bin in -Ae mode against the
-# system X11R6 headers in /usr/include/X11.  HP-UX is SysV, so -DSYSV picks
-# string.h plus the bcopy/bzero macros in XpmI.h.
+# Built with GCC 2.95.3 from /usr/local/bin against the OpenWindows 3.5.1
+# X11R5 headers in /usr/openwin/include. -DSVR4 picks string.h plus the
+# bcopy/bzero macros in XpmI.h.
 #
 
-CC = /opt/ansic/bin/cc
+CC = gcc
 AR = ar r
 RM = rm -f
 LN = ln -s
 
-XINCLUDE = /usr/include
+XINCLUDE = /usr/openwin/include
 
-CDEBUGFLAGS = -Ae -O
-DEFINES = -DZPIPE -DSYSV
+CDEBUGFLAGS = -O
+DEFINES = -DZPIPE -DSVR4
 
 CFLAGS = $(CDEBUGFLAGS) $(DEFINES) -I. -I$(XINCLUDE)
 
